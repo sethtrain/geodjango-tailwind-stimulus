@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["./javascript/types"],
+    "target": "es2017",
+    "moduleResolution": "node",
+  }
+}

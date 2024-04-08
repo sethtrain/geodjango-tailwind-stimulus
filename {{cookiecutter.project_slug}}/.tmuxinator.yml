@@ -1,0 +1,12 @@
+name: {{ cookiecutter.project_slug }}
+root: ~/projects/{{ cookiecutter.project_slug }}
+pre_window: pyenv activate {{ cookiecutter.project_slug }}
+
+windows:
+  - editor: vim
+  - shell: #blank
+  - builds:
+      layout: even-vertical
+      panes:
+        - make watch-js
+        - make up

@@ -1,0 +1,19 @@
+{% raw %}{% load static %}
+<!doctype html>
+<html class="h-full bg-gray-100">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="{% static 'application.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'application.css' %}">
+    {% block extrahead %}{% endblock %}
+    <title>{% endraw %}{{ cookiecutter.project_name }}{% raw %} : Registration</title>
+</head>
+
+<body class="h-full">
+    {% block content %}{% endblock %}
+    {% block script %}{% endblock %}
+</body>
+
+</html>{% endraw %}

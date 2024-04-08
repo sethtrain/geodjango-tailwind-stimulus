@@ -1,0 +1,29 @@
+{
+  "name": "{{ cookiecutter.project_slug }}",
+  "version": "1.0.0",
+  "description": "{{cookiecutter.project_short_description}}",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "watch": "env WATCH=true node build.js",
+    "build": "node build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "{{cookiecutter.full_name}}",
+  "license": "ISC",
+  "devDependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo": "^8.0.3",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.14",
+    "el-transition": "^0.0.7",
+    "esbuild": "^0.20.1",
+    "esbuild-plugin-stimulus": "^0.1.5",
+    "esbuild-style-plugin": "^1.6.3",
+    "hotkeys-js": "^3.13.7",
+    "stimulus-use": "^0.52.2",
+    "tailwindcss": "^3.4.1"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "full_name": "Seth Buntin",
+  "email": "sethtrain@gmail.com",
+  "github_username": "sethtrain",
+  "python_version": "3.11",
+  "project_name": "Django, Tailwind-UI, Stimulus",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_short_description": "Project contains all the boilerplate you need to create a Django application with Tailwind and Stimulus.",
+  "sections": "Teams,Projects,Calendar"
+}

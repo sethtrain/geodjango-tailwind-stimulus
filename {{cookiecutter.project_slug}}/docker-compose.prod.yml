@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./staticfiles:/apps/{{ cookiecutter.project_slug }}/static
+    ports:
+      - 8000:80
+    depends_on:
+      - web
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    command: opentelemetry-instrument daphne -p 8000 -b 0.0.0.0 {{ cookiecutter.project_slug }}.asgi:application
+    volumes:
+      - .:/usr/src/app/
+    expose:
+      - 8000
+    env_file:
+      - ./config/prod.env
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - ./config/prod.env
+    ports:
+      - "5432:5432"
+
+  grafana-otel-lgtm:
+    platform: linux/amd64
+    image: grafana/otel-lgtm
+    container_name: grafana-otel-lgtm
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+      - "3000:3000"
+
+volumes:
+  postgres_data:
