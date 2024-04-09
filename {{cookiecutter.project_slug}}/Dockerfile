@@ -11,11 +11,15 @@ ENV PYTHONUNBUFFERED 1
 # install system dependencies
 RUN apt-get update && apt-get install -y netcat
 
+# install geo dependencies
+RUN apt-get install binutils libproj-dev gdal-bin
+
 # install dependencies
 RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
+# install opentelemetry dependencies
 RUN pip install opentelemetry-distro[otlp]
 RUN opentelemetry-bootstrap -a install
 

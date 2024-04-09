@@ -21,8 +21,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.gis",
     "debug_toolbar",
     "organizations",
+    "leaflet",
+    "djgeojson",
     "polymorphic",
     "apps.core",
 ]
@@ -60,7 +63,9 @@ ASGI_APPLICATION = "{{cookiecutter.project_slug}}.asgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": os.environ.get(
+            "DATABASE_ENGINE", "django.contrib.gis.db.backends.spatialite"
+        ),
         "NAME": os.environ.get("POSTGRES_DB", BASE_DIR / "db.sqlite3"),
         "USER": os.environ.get("POSTGRES_USER", "user"),
         "PASSWORD": os.environ.get("POSTGRES_PASSWORD", "password"),
